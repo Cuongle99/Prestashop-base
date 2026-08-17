@@ -1,0 +1,20 @@
+// Block Modules Sidebar
+// ========================================================================
+
+$block-margin-bottom: 				$grid-gutter-width-base !default;
+
+// Heading Block
+$block-heading-font-size:		    1.125rem !default;
+$block-heading-font-weight:         700 !default;
+$block-heading-padding: 		    $medium-space !default;
+$block-heading-margin: 		        0px !default;
+$block-heading-transform:           uppercase !default;
+$block-heading-line-height:         normal !default;
+$block-heading-letter-spacing:      0px !default; 
+$block-heading-radius: 			    0px;
+$block-heading-border: 			    none !default;
+
+// Block Content
+$block-content-border:			    $main-border !default;
+$block-content-padding:			    0 $medium-space $medium-space!default;
+$block-content-radius:         	    0px !default;

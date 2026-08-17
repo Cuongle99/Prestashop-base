@@ -1,0 +1,58 @@
+:root {
+   //font family
+   --font-family-base : Manrope, sans-serif; // main font
+   --font-family-megamenu : Manrope, sans-serif; //font for menu
+   --font-family-slider : Manrope, sans-serif; // font slider
+   --font-family-heading : Manrope, sans-serif; // font for Heading tag
+   --font-family-senary : Manrope, sans-serif;
+   --font-family-septenary : Manrope, sans-serif;
+
+   //Color skin
+   --theme-color-default : #24b9d7; // skin color
+
+   // Color text
+   --headings-color:#000;
+   --link-color:#373a3c;
+   --link-color-hover : var(--theme-color-default);
+   --text-color:#373a3c;
+   --price-color : #000; // product page
+
+   //Button 
+   --btn-bg: #222; // button
+   --btn-bg-hover : var(--theme-color-default);
+   --btn-color: #fff;
+   --btn-color-hover : #fff;
+
+   //Product item
+   --product-background:transparent;
+   --product-name-color : #000;
+   --product-name-color-hover: var(--theme-color-default);
+   --product-price-color : #373a3c; // Product price
+   --product-regular-price-color: #999; // Old product price
+
+   --product-button-bg : #222;
+   --product-button-color:#fff;
+   --product-button-bg-hover:var(--theme-color-default);
+   --product-button-color-hover : #fff;
+   
+   //Product flag 
+   --on-sale-badge-background : #f39d72;
+   --on-sale-badge-color : #fff;
+   --new-badge-background:#24b9d7;
+   --new-badge-color:#fff;
+   --sale-badge-background : red;
+   --sale-badge-color:#fff;
+   --online-only-background: #24b9d7;
+   --online-only-color:#fff;
+   --pack-badge-background:#000;
+   --pack-badge-color:#fff;
+
+   //Boxes (including Sidebars)
+   --block-background :#fff;
+   --block-inner-background :transparent;
+   --block-heading-bg:none;
+   --block-heading-color :#000;
+   --block-text : var(--text-color);
+   --block-link-color : var(--text-color);
+   --block-link-color-hover : var(--theme-color-default);
+}

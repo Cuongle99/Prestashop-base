@@ -1,0 +1,281 @@
+@import "theme_variables";
+
+/*Preview Admin */
+#module-leoslideshow-preview{
+	.container{
+ 		width: 100%;
+	}
+	.content-only{
+		overflow: hidden;
+	}
+	#leo-paneltool{
+		display: none;
+	}
+}
+/* The slider */
+.iviewSlider {
+	overflow: hidden;
+}
+
+/* The timer in the Slider */
+.iview-timer {
+	position: absolute;
+	z-index: 100;
+	cursor: pointer;
+	@include rounded-corners(5px);
+	div {
+		@include rounded-corners(3px);
+	}
+}
+
+
+/* The Preloader in the Slider */
+.iview-preloader {
+	position: absolute;
+	z-index: 1000;
+	border: $black 1px solid;
+	padding: 1px;
+	@include size(100px,3px);
+	@include rounded-corners(3px);
+	div {
+		background: $black;
+		float: left;
+		@include size(0px,3px);
+		@include rounded-corners(2px);
+	}
+}
+
+/* The strips and boxes in the Slider */
+.iview-strip, .iview-block {
+	display: block;
+	position: absolute;
+	z-index: 5;
+}
+
+/* Direction nav styles (e.g. Next & Prev) */
+.iview-directionNav {
+	a {
+		position: absolute;
+		top: 50%;
+		z-index: 9;
+		cursor: pointer;
+		margin-top: -25px;
+		color: $white;
+		text-align: center;
+		font-size: 0px;
+		@include size(50px,50px);
+		@include rgba($black, 0.1);
+		@include transition(left 0.3s ease-in-out);
+		@include transition-property(left,right);
+		&:before{
+			content: "";
+			font-family: $font-icon;
+			font-size: 20px;
+			line-height: 48px;
+			color: $white;
+		}
+		&.iview-prevNav {
+			left: -50px;
+			&:before{
+				content: "\E5CB";
+			}
+		}
+		&.iview-nextNav {
+			right: -50px;
+			&:before{
+				content: "\E5CC";
+			}
+		}
+		&:hover{
+			background: var(--theme-color-default);
+			color: $white;
+		}
+		@media (max-width: 600px){
+			@include size(40px,40px);
+			&:before{
+				line-height: 40px;
+			}
+		}
+	}
+}
+.iview.iview-hover{
+	.iview-directionNav{
+		a{
+			&.iview-prevNav {
+				left: 10px;
+			}
+			&.iview-nextNav {
+				right: 10px;
+			}
+		}
+	}
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.iview-controlNav {
+	div{
+		&.iview-items {	
+			z-index: 25; 
+			position: absolute;
+			text-align: center;
+		    display: inline-block;
+		    width: 100%;
+		    bottom: 10px;
+			@include transition(opacity 0.2s ease-out);
+			ul{
+				margin-bottom: 0px;
+				li{
+					display: inline-block;
+					position: relative;
+					height: 10px;
+					padding: 0px;
+					a{
+						&.iview-control {
+							background-color: $white;
+							text-indent: -9999px;
+							display: inline-block;
+							cursor: pointer;
+							margin: 0px 5px;
+							@include size(10px,10px);
+							@include rounded-corners(100%);
+							&.active,
+							&:hover { 
+								background: #fafafa;
+							}
+						}
+					}
+				}
+			}
+			&.customHtmlBullet{
+				padding: 0px;
+				height: 96px;
+				width: 100%;
+				background: #FFF;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				text-align: left;
+				z-index: 3;
+				ul{
+					li{
+						width: 33%;
+						height: 96px;
+						float: left;
+						padding: 0;
+					}
+				}
+				a{
+					&.iview-control {
+						padding: 20px 25px 20px 16%;
+						float: left;
+						width: 100%;
+						height: 100%;
+						background: none;
+						text-transform: uppercase;
+						border-left: 1px solid #DDD;
+						@include rounded-corners(0);
+						text-indent: inherit;
+						margin: 0;
+						&.active,
+						&:hover {
+							background: #fafafa;
+							cursor: pointer;
+							&:after{
+								font-family: $font-icon;
+								content: "\f0d8";
+								position: absolute;
+							    top: -33px;
+							    right: auto;
+							    left: 50%;
+							    margin-left: -10px;
+								font-size: 40px;
+								color: #fafafa;
+							}
+							span{
+								background-color: var(--theme-color-default);
+								color: $white;
+							}
+						}	
+						h5{font-size: $base-font-size; font-weight: 400;font-family: $font-family-base; line-height: 20px;}	
+						span{
+							@include rounded-corners(100%);
+							@include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.16));
+							background: #eaeaea;
+							width: 56px;
+							height: 56px;
+							line-height: 56px;
+							display: inline-block;
+							text-align: center;
+							font-size: 1.125rem;
+							margin: 0 1.125rem 0 0;
+							float: left;	
+						}
+						p{
+							margin: 0;
+							color: $body-color;
+						}
+					}
+				}
+			}
+		}
+	}
+	&.iview-thumbnail{
+		div.iview-items{
+			bottom: 0;
+			ul li{
+				width: 200px;
+				height: auto;
+				overflow: hidden;
+				vertical-align: bottom;
+				a{
+					width: 100%;
+					height: auto;
+					margin: 0;
+					text-indent: inherit;
+					background: transparent;
+					@include transition(all 0.3s ease-out);
+					&.active, &:hover{
+						@include transform(scale(1.1));
+					}
+					img{
+						max-width: 100%;
+						height: auto;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/* The video show in the Slider */
+.iview-video-show {
+	background: #000;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 101;
+	.iview-video-container {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		a{
+			&.iview-video-close {
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				background: #222;
+				color: $white;
+				text-align: center;
+				line-height: 29px;
+				font-size: 1.375rem;
+				font-weight: bold;
+				overflow: hidden;
+				@include size(1.25rem,1.25rem);
+				@include rounded-corners(15px);
+				&:hover{
+					background: #444;
+				}
+			}
+		}
+	}
+}

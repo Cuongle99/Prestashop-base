@@ -1,0 +1,31 @@
+@import "theme_variables";
+
+.dropdown{
+  color:var(--text-color);
+  &:hover .expand-more{
+    color: #000;
+  }
+  .expand-more{
+    color: var(--text-color);
+    cursor: pointer;
+    @include user-select(none);
+    @include rtl-margin-right(3px);
+
+  }
+  .active{
+    max-height: 200px;
+    overflow-y: hidden;
+    visibility: visible;
+  }
+  select {
+    -moz-appearance: none;
+    border: 0 none;
+    outline: 0 none;
+    color: $gray-darker;
+    background: white;
+  }
+}
+.dropdown-item:focus, .dropdown-item:hover {
+  background: none;
+  text-decoration: none;
+}

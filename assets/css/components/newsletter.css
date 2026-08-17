@@ -1,0 +1,121 @@
+/***************************************************
+  Mixins Themes 
+/***************************************************/
+/* Mixin Normal*/
+/* Mixin Clear */
+/* Mixin Border */
+/*background RGBA
+============================================*/
+/***************************************************
+  Mixins RTL Themes 
+/***************************************************/
+/************************************ 
+	Override Bootstrap 
+*************************************/
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/***********************************************************************/
+.block_newsletter {
+  float: inherit;
+  width: 100%;
+  max-width: 50rem;
+  margin: auto;
+  margin-bottom: 0.625rem;
+  clear: both;
+  font-size: 0.875rem;
+  background: #fff; }
+  .block_newsletter form {
+    position: relative; }
+    .block_newsletter form input[type=text] {
+      border: 2px solid #333b48;
+      padding: 0.75rem 0.625rem;
+      max-width: 570px;
+      width: 100%;
+      background: white;
+      color: #232323;
+      font-weight: 300;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      -ms-border-radius: 2px;
+      -o-border-radius: 2px;
+      border-radius: 2px; }
+      .block_newsletter form input[type=text]:focus {
+        outline: 3px var(--theme-color-default) solid;
+        color: #232323;
+        background: white; }
+        .block_newsletter form input[type=text]:focus + button {
+          background: var(--theme-color-default); }
+      .block_newsletter form input[type=text]::-webkit-input-placeholder {
+        color: rgba(35, 35, 35, 0.5);
+        text-indent: 0.625rem; }
+      .block_newsletter form input[type=text]::-moz-placeholder {
+        color: rgba(35, 35, 35, 0.5);
+        text-indent: 0.625rem; }
+      .block_newsletter form input[type=text]:-moz-placeholder {
+        color: rgba(35, 35, 35, 0.5);
+        text-indent: 0.625rem; }
+      .block_newsletter form input[type=text]:-ms-input-placeholder {
+        color: rgba(35, 35, 35, 0.5);
+        text-indent: 0.625rem; }
+    .block_newsletter form button[type=submit] {
+      position: absolute;
+      background: #333b48;
+      border: none;
+      bottom: 0.1875rem;
+      color: white;
+      padding: 0px;
+      font-size: 1.1875rem;
+      width: 2.4375rem;
+      height: 2.4375rem;
+      right: 0.1875rem;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      -ms-border-radius: 2px;
+      -o-border-radius: 2px;
+      border-radius: 2px; }
+      .rtl .block_newsletter form button[type=submit] {
+        left: 0.1875rem;
+        right: auto; }
+      .block_newsletter form button[type=submit]:hover {
+        background: var(--theme-color-default); }
+  .block_newsletter #block-newsletter-label {
+    font-size: 1.3125rem;
+    line-height: 1.75rem;
+    color: #232323; }
+  .block_newsletter form .input-wrapper {
+    overflow: hidden; }
+  .block_newsletter form .row .col-xs-12:last-of-type p {
+    font-size: 0.75rem;
+    color: #7a7a7a; }
+  .block_newsletter form .row .col-xs-12:first-of-type .btn-primary:first-of-type {
+    margin-left: 0.5rem; }
+  .block_newsletter form input[type="email"] {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #c3c3c3; }
+    .block_newsletter form input[type="email"]:focus {
+      padding: 8px 8px 9px;
+      border: 3px var(--theme-color-default) solid;
+      outline: 0; }
+  .block_newsletter form input {
+    height: 42px;
+    box-shadow: none; }
+
+#footer .block_newsletter p {
+  padding-top: 0.625rem; }
+#footer .block_newsletter #block-newsletter-label {
+  padding-top: 0; }
+
+#left-column .block_newsletter {
+  padding: 1.563rem 1.25rem;
+  margin-bottom: 1.563rem; }
+
+@media (max-width: 767px) {
+  .block_newsletter {
+    padding-top: 1rem; } }
+
+/*# sourceMappingURL=newsletter.css.map */

@@ -1,0 +1,117 @@
+@import "theme_variables";
+
+.quickview {
+  .modal-dialog {
+    width: calc(100% - 30px);
+    max-width: 64rem;
+  }
+  .modal-content {
+    min-height: 31.25rem;
+  }
+  .modal-header {
+    border: none;
+    padding: $small-space;
+  }
+  .modal-body {
+    min-height: 28.88rem;
+  }
+  .modal-footer {
+    border-top: 1px solid rgba($gray,.3);
+  }
+  .layer {
+    display: none;
+  }
+  .product-cover img {
+    width: 95%;
+  }
+  .arrows-product-fake{
+    display: none;  
+  }
+  .images-container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    .product-cover{
+      @include rtl-padding-right(90px);
+    }
+    .product-thumb-images{
+      position: absolute;
+      top: 20px;
+      width: 80px;
+      z-index: 9;
+      @include rtl-right(0px);
+    }
+  }
+  .product-thumb-images {
+    position: relative;
+    .thumb{
+      cursor: pointer;
+      @include opacity(0.75);
+      @include transition(all 0.5s ease);
+      &.selected,&:hover{
+        @include opacity(1);
+      }
+    }
+    .slick-list{
+      margin-left: 0px;
+      margin-right: 0px;
+      .slick-slide{
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+    }
+  }
+  .slick-arrows {
+    .slick-arrow{
+      width: 100%;
+      margin: auto;
+      color:var(--text-color);
+      &:hover{
+        &:before {
+          color: var(--theme-color-default);
+        }
+      }
+      &:before {
+         font-family: $font-icon;
+      }
+      &.slick-next {
+        top: -10px;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        &:before{
+          content: "\e5ce";
+          [dir="rtl"] & {
+            content: "\e5ce";
+          }
+        }
+      }
+      &.slick-prev {
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: -47px;
+        &:before{
+          content: "\e5cf";
+          [dir="rtl"] & {
+            content: "\e5cf";
+          }
+        }
+      }
+    }
+  } 
+  .social-sharing {
+    @include rtl-margin($small-space,$medium-space,0px,$small-space);
+  }
+}
+.rtl{
+  .quickview .slick-arrows .slick-arrow{
+    &.slick-prev, &.slick-next{
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+
+

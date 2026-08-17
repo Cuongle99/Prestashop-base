@@ -1,0 +1,94 @@
+@import "partials/variables";
+
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+
+$app-brand-prefix        : leo !default;
+
+/**
+ *   Blocks Layout Selectors 
+ */
+
+$block-prefix 			 : block!default;
+$block-selector          : block !default;
+$block-heading-selector  : title_block !default;
+$block-content-selector  : block_content !default;
+
+//------- Path Variables
+$image-path:                   "images/"!default; 
+$image-theme-base-path:        "../img/"!default;
+$image-base-path:              "../../../img/"!default;
+$image-module-path:            "../../../img/icon/"!default; 
+$module-path:                  "../../../modules/"!default; 
+
+//------- Modules Path Variables (Close when upload svn)
+$image-leoelements-path:     "../../../../../img/modules/leoelements"!default; 
+$image-leobootstrapmenu-path:  "../../../../../img/modules/leobootstrapmenu"!default;
+$image-leoslideshow-path:      "../../../../../img/modules/leoslideshow"!default;
+
+//------- Modules Path Variables for SH (Open when upload svn)
+//$image-leoelements-path:     "../../../../assets/img/modules/leoelements"!default; 
+//$image-leobootstrapmenu-path:  "../../../../assets/img/modules/leobootstrapmenu"!default;
+//$image-leoslideshow-path:      "../../../../assets/img/modules/leoslideshow"!default;
+
+/***********************************************************************/
+
+// some basic colors
+
+$nocolor:                           transparent!default;
+$brand-primary: var(--theme-color-default);
+
+// Variables Font Family 
+// ========================================================================
+
+//--- Font icon
+
+$font-icon: 			             "Material Icons" !default;
+$font-icon-1:                        "FontAwesome" !default;
+$font-icon-2:                        "Line Awesome Brands" !default;
+$font-icon-3:                        "eicons" !default;
+$font-icon-4:                        "Pe-icon-7-stroke" !default;
+
+//-------- BORDERS
+$border-color:						#eaeaea !default;
+$main-border:						1px solid $border-color !default;
+$main-border-hover:                 1px solid var(--theme-color-default) !default;
+
+//-------- Variables RTL 
+$rtl-left : left;
+$rtl-right : right;
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+
+// LAYOUT VARIABLES 
+// ========================================================================
+
+// Header Nav 
+$header-nav-outside-bg:                 #282d35 !default;
+$header-nav-bg:                         $nocolor !default;
+$header-nav-color:                      var(--text-color) !default;
+$header-nav-font-size:                  $base-font-size !default;
+$header-nav-height:                     50px !default;
+
+// Header Top
+$header-top-outside-bg:                 $white !default; 
+$header-top-bg:                         $nocolor !default;
+$header-top-color:                      $black !default;
+
+// Footer
+$footer-outside-bg:                     #25292f !default;
+$footer-bg:                             $nocolor !default;
+$footer-color:                          var(--text-color) !default;
+
+$footer-top-outside-bg:                 $white !default;
+$footer-top-bg:                         $nocolor !default;
+$footer-top-color:                      $footer-color !default;
+
+$footer-center-outside-bg:              $footer-outside-bg !default;
+$footer-center-bg:                      $nocolor !default;
+$footer-center-color:                   $footer-color !default;
+
+$footer-bottom-outside-bg:              #191c21 !default;
+$footer-bottom-bg:                      $nocolor !default;
+$footer-bottom-color:                   $footer-color !default;

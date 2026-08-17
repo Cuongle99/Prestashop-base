@@ -1,0 +1,125 @@
+@import "bourbon/_bourbon";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "_mixins";
+
+/************************************ 
+	Override Bootstrap 
+*************************************/
+
+// Font size
+$base-font-size: 1rem; //16px
+$font-size-lg: 0.9375rem;
+$font-size-sm: 0.875rem;
+$font-size-xs: 0.8125rem;
+$font-size-h1: 1.375rem;
+$font-size-h2: 1.3125rem;
+$font-size-h3: 1.125rem;
+$font-size-h4: 1.125rem;
+$font-size-h5: 1rem;
+$font-size-h6: 0.9375rem;
+
+// Color 
+$white: #fff;
+$black: #000;
+$gray-dark: #363a42;
+$gray-darker: #232323;
+$gray: #7a7a7a;
+$gray-second: #9b9b9b;
+$gray-light: #f6f6f6;
+$gray-light-second: #dbdbdb;
+$gray-lighter: #f6f6f6;
+$gray-lighter-second: #f7f7f7;
+$brand-primary: #24b9d7;
+$brand-secondary: #f39d72;
+$brand-success: #4cbb6c;
+$brand-warning: #ff9a52;
+$brand-danger: #ff4c4c;
+
+// Warning
+$warning: #ff9a52;
+$warning-second: #f49d6e;
+$warning-hover: #fde7bb;
+$alert-warning-bg: rgba(255, 154, 82, 0.3);
+$alert-warning-border: $warning;
+$alert-warning-text: $gray-darker;
+
+// Button
+$btn-primary-color: $white;
+$btn-primary-bg: $brand-primary;
+$btn-primary-border: transparent;
+$btn-secondary-color: $gray-darker;
+$btn-secondary-bg: $gray-lighter;
+$btn-secondary-border: transparent;
+$border-radius: 0;
+$btn-font-size: $base-font-size;
+$btn-padding-x:  1rem !default;
+$btn-padding-y:  .5rem !default;
+$btn-border-radius:0;
+
+
+$btn-disabled-background: #f6f6f6;
+$btn-disabled-color: #ddd;
+
+$btn-warning-bg: $warning;
+$btn-warning-color: $white;
+$btn-tertiary-color: #6c868e;
+$btn-tertiary-hover: #bbcdd2;
+
+// Space
+$extra-small-space: 0.3125rem;
+$small-space: 0.625rem;
+$medium-space: 1.25rem;
+$large-space: 1.875rem;
+$extra-large-space: 2.5rem;
+
+// Text 
+$text-muted: $gray;
+$body-color : var(--text-color);
+
+// Link
+$link-hover-color : var(--link-color-hover);
+$link-color : var(--link-color);
+
+// Heading
+$headings-font-family:  var(--font-family-heading);
+$headings-color:   var(--headings-color);
+$headings-font-weight:   bold;
+
+// Container 
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px
+);
+
+// Breadcrumb
+$breadcrumb-bg:                 #0c0c0e;
+$breadcrumb-divider-color:      #FFFFFF;
+$breadcrumb-active-color:       #FFFFFF;
+$breadcrumb-divider:            "\f0da";
+
+// Carousel
+$carousel-control-color:        #999;
+$carousel-control-width:        1.5625rem;
+$carousel-control-opacity:      1;
+$carousel-control-font-size:    1rem;
+$carousel-text-shadow:          none;
+
+
+$display1-size: 3.125rem;
+$display1-weight: 600;
+$display2-size: 2.188rem;
+$display2-weight: 400;
+$display3-size: 1.563rem;
+$display3-weight: 400;
+$display4-size: 1.25rem;
+$display4-weight: 400;
+
+$radio-border-color: #979797;
+$border-gray: #ddd;
+$current-step-color: #00c062;
+$label-color: $gray-darker;
+$input-border-color: rgba(0, 0, 0, 0.25);
+$tooltip-bg: $brand-danger;

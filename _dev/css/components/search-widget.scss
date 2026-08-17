@@ -1,0 +1,72 @@
+@import "theme_variables";
+
+.search-widget {
+  width: 95%;
+  z-index: 1;
+  @include search-box;
+  .popup-content{
+    background: none;
+    border: none;
+    min-width: inherit;
+    padding: 0;
+    z-index: 99;
+  }
+}
+
+#pagenotfound {
+  .page-content {
+    #search_widget {
+      width: 100%;
+    }
+  }
+}
+.page-not-found {
+  .search-widget {
+    form {
+      display: inline-block;
+    }
+  }
+}
+/*** Responsive part ***/
+@include media-breakpoint-down(lg) {
+  .search-widget {
+    margin-bottom: $medium-space;
+  }
+}
+@include media-breakpoint-up(sm){
+  .search-widget{
+    .popup-content{
+      display: block;
+      position: inherit;
+    }
+  }
+}
+@include media-breakpoint-down(sm){
+  .search-widget{
+    .popup-content{
+      width: 17.5rem;
+      left: 0px;
+      right: auto;
+    }
+  }
+  .rtl{
+    .search-widget{
+      .popup-content{
+        right: 0px;
+        left: auto;
+      }
+    }
+  }
+}
+@include media-breakpoint-down(xs) {
+  .search-widget {
+    float: none;
+    display: inline-block;
+    margin-bottom: 0;
+    form {
+      input[type="text"] {
+        min-width: 100%;
+      }
+    }
+  }
+}

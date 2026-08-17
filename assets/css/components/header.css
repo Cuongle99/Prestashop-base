@@ -1,0 +1,83 @@
+/***************************************************
+  Mixins Themes 
+/***************************************************/
+/* Mixin Normal*/
+/* Mixin Clear */
+/* Mixin Border */
+/*background RGBA
+============================================*/
+/***************************************************
+  Mixins RTL Themes 
+/***************************************************/
+/************************************ 
+	Override Bootstrap 
+*************************************/
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/***********************************************************************/
+#header .menu {
+  display: inline-block; }
+  #header .menu > ul > li {
+    display: inline-block; }
+#header .header-nav #menu-icon {
+  margin: 0 1rem;
+  vertical-align: middle;
+  cursor: pointer; }
+  #header .header-nav #menu-icon .material-icons {
+    line-height: 50px; }
+#header .header-nav .right-nav {
+  display: flex;
+  justify-content: flex-end; }
+#header .header-nav .currency-selector {
+  margin-top: 0.9375rem; }
+#header .header-nav .language-selector {
+  margin-top: 0.9375rem; }
+#header .header-nav .cart-preview.active a,
+#header .header-nav .cart-preview.active i {
+  color: var(--text-color); }
+#header .header-nav .cart-preview .shopping-cart {
+  color: #7a7a7a;
+  vertical-align: middle; }
+#header .header-nav .cart-preview .body {
+  display: none; }
+#header .header-nav .blockcart {
+  height: 3rem;
+  padding: 0.75rem;
+  margin-left: 0.9375rem;
+  text-align: center; }
+  #header .header-nav .blockcart a {
+    color: var(--text-link); }
+    #header .header-nav .blockcart a:hover {
+      color: var(--text-link-hover); }
+  #header .header-nav .blockcart.active a:hover {
+    color: var(--text-link-hover); }
+  #header .header-nav .blockcart .header {
+    margin-top: 0.125rem; }
+#header .header-nav #_desktop_contact_link {
+  display: inline-block; }
+  #header .header-nav #_desktop_contact_link #contact-link {
+    margin-top: 0.9375rem; }
+#header .header-nav .search-widget {
+  margin-top: 0.2rem; }
+#header .header-nav .material-icons.expand-more {
+  margin-left: -0.375rem; }
+#header .header-top .menu {
+  padding-left: 15px; }
+  .rtl #header .header-top .menu {
+    padding-right: 15px;
+    padding-left: inherit; }
+#header .header-top-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+#header .header-top .position-static {
+  position: static; }
+#header .header-top a[data-depth="0"] {
+  color: #7a7a7a;
+  text-transform: uppercase; }
+
+/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,49 @@
+-Before update, please backup site
+
+
+List files changed since version 9.0 to 9.1.1
+
+1,module root
+
+Copy latest version our module in folder 
+dependencies/modules
+
+to replace for folder our module in folder 
+Root/modules
+
+2,File in folder our template
+
+-add new file
+
+templates\checkout\_partials\order-confirmation-table-multishipment.tpl
+templates\checkout\_partials\order-final-summary-table-multishipment.tpl
+templates\customer\_partials\order-detail-no-return-multishipment.tpl
+templates\customer\_partials\order-detail-product-line-no-return.tpl
+templates\customer\_partials\order-detail-product-line-no-return-mobile.tpl
+templates\customer\_partials\order-detail-product-line-return.tpl
+templates\customer\_partials\order-detail-product-line-return-mobile.tpl
+templates\customer\_partials\order-detail-return-multishipment.tpl
+templates\customer\_partials\order-shipments.tpl
+templates\customer\_partials\order-carrier.tpl
+
+
+-file change
+
+templates\_partials\form-fields.tpl
+templates\_partials\head.tpl
+templates\catalog\_partials\product-add-to-cart.tpl
+templates\catalog\_partials\product-customization.tpl
+templates\checkout\_partials\cart-detailed-product-line.tpl
+templates\checkout\_partials\order-final-summary.tpl
+
+templates\customer\_partials\order-detail-return.tpl
+templates\customer\_partials\order-detail-no-return.tpl
+templates\customer\my-account.tpl
+templates\customer\order-detail.tpl
+templates\customer\order-return.tpl
+
+
+
+
+
+

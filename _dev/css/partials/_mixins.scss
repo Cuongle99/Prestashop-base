@@ -1,0 +1,562 @@
+@mixin search-box {
+  form {
+    position: relative;
+    input[type=text] {
+      &:focus {
+        outline: 3px $brand-primary solid;
+        color: $gray-darker;
+        background: white;
+        + button {
+          background: $brand-primary;
+        }
+      }
+      border: 2px solid #333b48;
+      padding: 0.75rem $small-space;
+      max-width: 570px;
+      width: 100%;
+      background: white;
+      color: $gray-darker;
+      font-weight: 300;
+      @include rounded-corners(2px);
+      @include placeholder {
+        color: rgba($gray-darker, 0.5);
+        text-indent: 0.625rem;
+      }
+    }
+    button[type=submit] {
+      position: absolute;
+      background: #333b48;
+      border: none;
+      bottom: 0.1875rem;
+      color: white;
+      padding: 0px;
+      font-size:  1.1875rem;
+      @include size(2.4375rem,2.4375rem);
+      @include rtl-right(0.1875rem);
+      @include rounded-corners(2px);
+      &:hover {
+        background: $brand-primary;
+      }
+    }
+  }
+}
+/***************************************************
+  Mixins Themes 
+/***************************************************/
+/* Mixin Normal*/
+@mixin rounded-corners($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($shadow) {
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;// iOS <4.3 & Android <4.1
+  -o-box-shadow: $shadow;
+  -ms-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+    -ms-opacity: $opacity;
+    -o-opacity: $opacity;
+    -moz-opacity: $opacity;
+    -webkit-opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: #{alpha(opacity=$opacity-ie)};
+}
+
+@mixin ellipsis-text($value){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $value;
+  -webkit-box-orient: vertical;  
+}
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+     -moz-box-sizing: $boxmodel;
+          box-sizing: $boxmodel;
+}
+/* Mixin Clear */
+@mixin clearboxstyle(){
+  background: none;
+  border:none;
+}
+
+@mixin clearfloat(){
+  float: none;
+  width: 100%;
+}
+
+/* Mixin Border */
+@mixin border-exclude-top($border-deep, $border-type, $border-color ){
+  border-bottom: $border-deep $border-type $border-color;
+  border-left: $border-deep $border-type $border-color;
+  border-right: $border-deep $border-type $border-color;
+}
+
+@mixin border-exclude-bottom($border-deep, $border-type, $border-color ){
+  border-top: $border-deep $border-type $border-color;
+  border-left: $border-deep $border-type $border-color;
+  border-right: $border-deep $border-type $border-color;
+}
+
+@mixin border-exclude-left($border-deep, $border-type, $border-color ){
+  border-top: $border-deep $border-type $border-color;
+  border-bottom: $border-deep $border-type $border-color;
+  border-right: $border-deep $border-type $border-color;
+}
+
+@mixin border-exclude-right($border-deep, $border-type, $border-color ){
+  border-top: $border-deep $border-type $border-color;
+  border-bottom: $border-deep $border-type $border-color;
+  border-left: $border-deep $border-type $border-color;
+}
+
+// Transitions
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+     -moz-transition: $transition;
+      -ms-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}
+
+// Transformations
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+      -ms-transform: rotate($degrees); // IE9 only
+          transform: rotate($degrees);
+}
+@mixin scale($scale-args...) {
+  -webkit-transform: scale($scale-args);
+      -ms-transform: scale($scale-args); // IE9 only
+          transform: scale($scale-args);
+}
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+      -ms-transform: translate($x, $y); // IE9 only
+          transform: translate($x, $y);
+}
+@mixin translateX($x) {
+    -ms-transform: translateX($x);
+    -o-transform: translateX($x);
+    -moz-transform: translateX($x);
+    -webkit-transform: translateX($x);
+    transform: translateX($x);
+}
+
+@mixin translateY($y) {
+    -ms-transform: translateY($y);
+    -o-transform: translateY($y);
+    -moz-transform: translateY($y);
+    -webkit-transform: translateY($y);
+    transform: translateY($y);
+}
+@mixin skew($x, $y) {
+  -webkit-transform: skew($x, $y);
+      -ms-transform: skewX($x) skewY($y); // See https://github.com/twbs/bootstrap/issues/4885; IE9+
+          transform: skew($x, $y);
+}
+@mixin translate3d($x, $y, $z) {
+  -webkit-transform: translate3d($x, $y, $z);
+          transform: translate3d($x, $y, $z);
+}
+@mixin translate-0() {
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+@mixin rotateX($degrees) {
+  -webkit-transform: rotateX($degrees);
+      -ms-transform: rotateX($degrees); // IE9 only
+          transform: rotateX($degrees);
+}
+@mixin rotateY($degrees) {
+  -webkit-transform: rotateY($degrees);
+      -ms-transform: rotateY($degrees); // IE9 only
+          transform: rotateY($degrees);
+}
+
+/*background RGBA
+============================================*/
+@mixin rgba($colour, $alpha)
+{
+  $alphaColour: hsla(hue($colour), saturation($colour), lightness($colour), $alpha);
+  $ieAlphaColour: argb($alphaColour);   
+  background-color: $colour; 
+  background-color: $alphaColour;       
+  zoom: 1; 
+  background-color: transparent\9; 
+}
+@mixin border-rgba($colour, $alpha)
+{
+  $alphaColour: hsla(hue($colour), saturation($colour), lightness($colour), $alpha);
+  $ieAlphaColour: argb($alphaColour);   
+  border-color: $colour; 
+  border-color: $alphaColour;       
+  zoom: 1; 
+  border-color: transparent\9;
+}
+@mixin background-hover {
+  color: $text-color;
+  background: rgba(228, 50, 40, 0.3);
+}
+
+// Background Gradient: Left to Right
+@mixin bg-gradient-l2r($start-colour, $end-colour) {
+    background-color: $start-colour;
+    background-image: -webkit-gradient(linear, left top, right top, from($start-colour), to($end-colour));
+    background-image: -webkit-linear-gradient(left, $start-colour, $end-colour);
+    background-image:    -moz-linear-gradient(left, $start-colour, $end-colour);
+    background-image:     -ms-linear-gradient(left, $start-colour, $end-colour);
+    background-image:      -o-linear-gradient(left, $start-colour, $end-colour);
+    background-image:         linear-gradient(left, $start-colour, $end-colour);
+    filter:            progid:DXImageTransform.Microsoft.gradient(start-colourStr='#{$start-colour}', end-colourStr='#{$end-colour}', gradientType='1');
+}
+/// button variant outline
+@mixin button-variant-outline($color, $background, $border, $colorhover, $bghover, $borderhover ) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: $colorhover;
+    background-color: $bghover;
+        border-color: $borderhover ;
+  }
+  .open & { &.dropdown-toggle {
+    color: $colorhover;
+    background-color: $bghover;
+        border-color: $borderhover ;
+  } }
+  &:active,
+  &.active {
+    background-image: none;
+  }
+  .open & { &.dropdown-toggle {
+    background-image: none;
+  } }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $background;
+          border-color: $border;
+    }
+  }
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+}
+
+// Block
+// -------------------------
+@mixin block-variant($border, $heading-text-color, $heading-bg-color, $heading-border) {
+  border-color: $border;
+
+  & .#{$block-heading-selector} {
+    color: $heading-text-color;
+    a{
+      color: $heading-text-color;
+    }
+    background-color: $heading-bg-color;
+    border-color: $heading-border;
+    + .#{$block-prefix}-collapse .#{$block-content-selector} {
+      border-top-color: $border;
+    }
+  }
+  & > .#{$block-prefix}-footer {
+    + .#{$block-prefix}-collapse .#{$block-prefix}-body {
+      border-bottom-color: $border;
+    }
+  }
+}
+@mixin container-layout-variant($color, $background){
+  background: $background;
+  color: $color;
+} 
+
+/***************************************************
+  Mixins RTL Themes 
+/***************************************************/
+
+// BASIC CONVERTER (ignore these)
+
+@mixin rtl-base-simple ($property, $direction) {
+  #{$property}:$direction;
+  .rtl & {
+    @if $direction == $rtl-right {
+      #{$property}:$rtl-left;
+    }
+    @else {
+      #{$property}:$rtl-right;
+    }
+  }
+}
+@mixin rtl-base-inherit ($property, $direction, $value, $inherit : inherit) {
+  #{$property}-#{$direction}: $value;
+  .rtl & {
+    @if $direction == $rtl-right {
+      #{$property}-#{$rtl-left}: $value;
+    }
+    @else {
+      #{$property}-#{$rtl-right}: $value;
+    }
+    #{$property}-#{$direction}: $inherit;
+  }
+}
+
+@mixin rtl-base-toprightbottomleft ($property, $t, $r, $b, $l) {
+  #{$property}: $t $r $b $l;
+  .rtl & {
+    #{$property}: $t $l $b $r;
+  }
+}
+
+// BODY STYLES
+
+@mixin rtl-direction ($forBody : true) {
+  direction: ltr;
+  @if $forBody {
+    &.rtl {
+      direction: rtl;
+    }
+  }
+  @else {
+    .rtl & {
+      direction: rtl;
+    }
+  }
+}
+@mixin rtl-font-family ($ltr, $rtl, $forBody : false) {
+  font-family: $ltr;
+  @if $forBody {
+    &.rtl, &.non-latin {
+      font-family:$rtl;
+    }
+  }
+  @else {
+    .rtl &, .non-latin & {
+      font-family:$rtl;
+    }
+  }
+}
+
+// MARGIN
+
+@mixin rtl-margin ($t, $r, $b, $l) {
+  @include rtl-base-toprightbottomleft(margin,$t, $r, $b, $l);
+}
+@mixin rtl-margin-left ($value) {
+  @include rtl-base-inherit(margin,$rtl-left,$value);
+}
+@mixin rtl-margin-right ($value) {
+  @include rtl-base-inherit(margin,$rtl-right,$value);
+}
+
+// PADDING
+
+@mixin rtl-padding ($t, $r, $b, $l) {
+  @include rtl-base-toprightbottomleft(padding,$t, $r, $b, $l);
+}
+@mixin rtl-padding-left ($value) {
+  @include rtl-base-inherit(padding,$rtl-left,$value);
+}
+@mixin rtl-padding-right ($value) {
+  @include rtl-base-inherit(padding,$rtl-right,$value);
+}
+
+// BORDER
+
+@mixin rtl-border-width ($t,$r,$b,$l) {
+  @include rtl-base-toprightbottomleft(border-width,$t,$r,$b,$l);
+}
+@mixin rtl-border-style ($t,$r,$b,$l) {
+  @include rtl-base-toprightbottomleft(border-style,$t,$r,$b,$l);
+}
+@mixin rtl-border-left ($value) {
+  @include rtl-base-inherit(border,$rtl-left,$value);
+}
+@mixin rtl-border-right ($value) {
+  @include rtl-base-inherit(border,$rtl-right,$value);
+}
+
+// POSITION
+
+@mixin rtl-left ($value) {
+  #{$rtl-left}: $value;
+  .rtl & {
+    #{$rtl-right}: $value;
+    #{$rtl-left}: auto;
+  }
+}
+@mixin rtl-right ($value) {
+  #{$rtl-right}: $value;
+  .rtl & {
+    #{$rtl-left}: $value;
+    #{$rtl-right}: auto;
+  }
+}
+
+// TEXT-ALIGN
+
+@mixin rtl-text-align-left () {
+  @include rtl-base-simple(text-align, $rtl-left);
+}
+@mixin rtl-text-align-right () {
+  @include rtl-base-simple(text-align, $rtl-right);
+}
+
+// FLOAT
+
+@mixin rtl-float-left () {
+  @include rtl-base-simple(float, $rtl-left);
+}
+@mixin rtl-float-right () {
+  @include rtl-base-simple(float, $rtl-right);
+}
+
+// BACKGROUND-POSITION
+
+@mixin rtl-background-position-left ($vertical) {
+  background-position:$rtl-left $vertical !important;
+  .rtl & {
+    background-position:$rtl-right $vertical !important;
+  }
+}
+@mixin rtl-background-position-right ($vertical) {
+  background-position:$rtl-right $vertical !important;
+  .rtl & {
+    background-position:$rtl-left $vertical !important;
+  }
+}
+
+@mixin rtl-background-position-percent ($vertical, $horPercent) {
+  background-position:$horPercent $vertical !important;
+  .rtl & {
+    background-position:100% - $horPercent $vertical !important;
+  }
+}
+
+// TEXT-SHADOW & BOX-SHADOW
+
+@mixin rtl-text-shadow ($x, $rest) {
+  text-shadow: $x $rest;
+  .rtl & {
+    text-shadow: -1 * $x $rest;
+  }
+}
+@mixin rtl-box-shadow ($x, $rest) {
+  -moz-box-shadow: $x $rest;
+  -webkit-box-shadow: $x $rest;
+  box-shadow: $x $rest;
+  .rtl & {
+    -moz-box-shadow: -1 * $x $rest;
+    -webkit-box-shadow: -1 * $x $rest;
+    box-shadow: -1 * $x $rest;
+  }
+}
+
+// BORDER-RADIUS
+
+@mixin rtl-border-radius($tl, $tr, $br, $bl) {
+  -moz-border-radius: $tl $tr $br $bl;
+  -webkit-border-radius: $tl $tr $br $bl;
+  border-radius: $tl $tr $br $bl;
+  .rtl & {
+    -moz-border-radius: $tr $tl $bl $br;
+    -webkit-border-radius: $tr $tl $bl $br;
+    border-radius: $tr $tl $bl $br;
+  }
+}
+
+@mixin rtl-border-radius-topright ($value) {
+  -moz-border-top-#{$rtl-right}-radius: $value;
+  -webkit-border-top-#{$rtl-right}-radius: $value;
+  border-top-#{$rtl-right}-radius: $value;
+  .rtl & {
+    -moz-border-top-#{$rtl-left}-radius: $value;
+    -webkit-border-top-#{$rtl-left}-radius: $value;
+    border-top-#{$rtl-left}-radius: $value;
+    -moz-border-top-#{$rtl-right}-radius: inherit;
+    -webkit-border-top-#{$rtl-right}-radius: inherit;
+    border-top-#{$rtl-right}-radius: inherit;
+  }
+}
+
+@mixin rtl-border-radius-bottomright ($value) {
+  -moz-border-bottom-#{$rtl-right}-radius: $value;
+  -webkit-border-bottom-#{$rtl-right}-radius: $value;
+  border-bottom-#{$rtl-right}-radius: $value;
+  .rtl & {
+    -moz-border-bottom-#{$rtl-left}-radius: $value;
+    -webkit-border-bottom-#{$rtl-left}-radius: $value;
+    border-bottom-#{$rtl-left}-radius: $value;
+    -moz-border-bottom-#{$rtl-right}-radius: inherit;
+    -webkit-border-bottom-#{$rtl-right}-radius: inherit;
+    border-bottom-#{$rtl-right}-radius: inherit;
+  }
+}
+
+@mixin rtl-border-radius-topleft ($value) {
+  -moz-border-top-#{$rtl-left}-radius: $value;
+  -webkit-border-top-#{$rtl-left}-radius: $value;
+  border-top-#{$rtl-left}-radius: $value;
+  .rtl & {
+    -moz-border-top-#{$rtl-right}-radius: $value;
+    -webkit-border-top-#{$rtl-right}-radius: $value;
+    border-top-#{$rtl-right}-radius: $value;
+    -moz-border-top-#{$rtl-left}-radius: inherit;
+    -webkit-border-top-#{$rtl-left}-radius: inherit;
+    border-top-#{$rtl-left}-radius: inherit;
+  }
+}
+
+@mixin rtl-border-radius-bottomleft ($value) {
+  -moz-border-bottom-#{$rtl-left}-radius: $value;
+  -webkit-border-bottom-#{$rtl-left}-radius: $value;
+  border-bottom-#{$rtl-left}-radius: $value;
+  .rtl & {
+    -moz-border-bottom-#{$rtl-right}-radius: $value;
+    -webkit-border-bottom-#{$rtl-right}-radius: $value;
+    border-bottom-#{$rtl-right}-radius: $value;
+    -moz-border-bottom-#{$rtl-left}-radius: inherit;
+    -webkit-border-bottom-#{$rtl-left}-radius: inherit;
+    border-bottom-#{$rtl-left}-radius: inherit;
+  }
+}
+
+@mixin rtl-left-right ($left,$right) {
+  #{$rtl-right}: $right;
+  #{$rtl-left}: $left;
+  .rtl & {
+    #{$rtl-right}: $left;
+    #{$rtl-left}: $right;
+  }
+}
+
+// Button sizes
+@mixin button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius) {
+    padding: $btn-padding-y $btn-padding-x;
+    font-size: $font-size-base;
+    @include border-radius($btn-border-radius);
+}

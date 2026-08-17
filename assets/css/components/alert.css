@@ -1,0 +1,58 @@
+/***************************************************
+  Mixins Themes 
+/***************************************************/
+/* Mixin Normal*/
+/* Mixin Clear */
+/* Mixin Border */
+/*background RGBA
+============================================*/
+/***************************************************
+  Mixins RTL Themes 
+/***************************************************/
+/************************************ 
+	Override Bootstrap 
+*************************************/
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/***********************************************************************/
+.ps-alert-error {
+  margin-bottom: 0; }
+
+.ps-alert-error .item,
+.ps-alert-success .item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  background-color: #ff4c4c;
+  border: 2px #ff4c4c solid; }
+  .ps-alert-error .item i,
+  .ps-alert-success .item i {
+    display: flex;
+    border: 15px #ff4c4c solid; }
+    .ps-alert-error .item i svg,
+    .ps-alert-success .item i svg {
+      width: 24px;
+      height: 24px;
+      background-color: #ff4c4c; }
+  .ps-alert-error .item p,
+  .ps-alert-success .item p {
+    width: 100%;
+    padding: 18px 20px;
+    margin: 0;
+    background-color: #fff; }
+
+.ps-alert-success {
+  padding: 0.25rem 0.25rem 2.75rem; }
+  .ps-alert-success .item {
+    background-color: #4cbb6c;
+    border-color: #4cbb6c; }
+    .ps-alert-success .item i {
+      border-color: #4cbb6c; }
+      .ps-alert-success .item i svg {
+        background-color: #4cbb6c; }
+
+/*# sourceMappingURL=alert.css.map */
