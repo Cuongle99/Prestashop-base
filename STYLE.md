@@ -187,7 +187,145 @@ Avoid repeating the same raw color, spacing, radius or breakpoint throughout the
 
 Use `clamp()`, `min()`, `max()` and `minmax()` for fluid values where appropriate.
 
-### 8. Responsive
+### 8. SCSS file responsibility and scope — mandatory
+
+Every existing `.scss` file must have a **clear responsibility and scope**. A file should answer these questions:
+
+- **What** does this file style?
+- **Where** is it used?
+- **Which page, template, component or UI area** does it belong to?
+- Is it a **global foundation**, a **shared component**, a **page-specific component**, a **module**, a **vendor override**, or a **variable/tool** file?
+
+Do not put unrelated styles into an existing file simply because it is convenient.
+
+#### File responsibility rules
+
+1. **One file = one clear styling responsibility.**
+2. Prefer organizing styles by **component/domain**, not by arbitrary visual properties such as `header.css`, `red.scss`, `spacing.scss` unless the file is genuinely a global foundation/tool.
+3. Global files should contain only genuinely global styles.
+4. Shared component files may be used by multiple pages/templates, but their scope must remain component-focused.
+5. Page-specific styles should live in the existing SCSS file responsible for that page/component area, not be mixed into unrelated global component files.
+6. Module-specific styles should stay with the module/component they belong to.
+7. Variables files contain variables/tokens only; they should not contain component styling.
+8. Mixins/functions/tools files contain reusable SCSS logic only; they should not contain page-specific selectors.
+9. Vendor/Bootstrap files are dependencies and should not be used as application-specific styling files.
+10. Do not create a new file for a tiny style change when an existing responsible file already owns that component.
+
+#### Naming and ownership
+
+When choosing where a rule belongs, follow this priority:
+
+**Global foundation → shared component → page/component-specific → vendor override**
+
+Example:
+
+```text
+_dev/css/
+├── _base_variables.scss        # Global/base variables
+├── _theme_variables.scss       # Theme variables
+├── app/
+│   ├── _buttons.scss            # Buttons only
+│   ├── _menu.scss               # Menu/navigation only
+│   ├── _product-item.scss       # Product item/card only
+│   ├── _modules.scss            # Shared module styles only
+│   └── vars/
+│       └── _product-item.vars.scss # Product-item variables only
+└── bootstrap/                   # Vendor/foundation only
+```
+
+The repository already contains files such as `_buttons.scss`, `_menu.scss`, `_product-item.scss`, `_modules.scss` and dedicated `vars` files. **Use the existing responsible file before considering a new file.**
+
+#### Before adding a rule
+
+Ask:
+
+1. Which component owns this markup?
+2. Which page/template uses it?
+3. Is the style global or component-specific?
+4. Does an existing SCSS file already own this component?
+5. Would placing it here make the file responsible for two unrelated areas?
+6. Could this rule affect another page because the selector is global?
+
+If an existing file already owns the component, **edit that file**.
+
+#### Avoid responsibility mixing
+
+Bad:
+
+```scss
+// _product-item.scss
+
+.product-item { ... }
+
+.header { ... }
+
+.footer { ... }
+
+.checkout-payment { ... }
+```
+
+This makes ownership unclear and increases the chance of accidental side effects.
+
+Better:
+
+```scss
+// _product-item.scss
+.product-item { ... }
+.product-item__image { ... }
+.product-item__title { ... }
+```
+
+And keep header, footer and checkout rules in their existing responsible SCSS files.
+
+#### Page scope vs shared component
+
+A shared component should not be duplicated into separate page files merely because it appears on multiple pages.
+
+Bad:
+
+```scss
+// product.scss
+.product-card { ... }
+
+// category.scss
+.product-card { ... }
+
+// home.scss
+.product-card { ... }
+```
+
+Prefer one shared source:
+
+```scss
+// _product-item.scss
+.product-card { ... }
+```
+
+Only add page-specific rules when the page genuinely requires a different behavior or presentation:
+
+```scss
+.category-page {
+  .product-card {
+    ...
+  }
+}
+```
+
+The page-specific rule must contain only the differences, not a copy of the complete component style.
+
+#### Required file documentation
+
+For existing SCSS files with unclear ownership, add a short header comment when practical:
+
+```scss
+// Responsibility: Product item/card styles.
+// Used by: product listings, category pages, search results and home product grids.
+// Scope: Shared product-card component only.
+```
+
+Do not add comments that merely repeat the filename. The comment should clarify **responsibility, usage and scope**.
+
+### 9. Responsive
 
 Use mobile-first CSS.
 
@@ -211,7 +349,7 @@ Prefer fluid layouts over unnecessary breakpoints.
 
 Do not add a breakpoint just to fix a small spacing issue if a fluid value can solve it.
 
-### 9. Layout
+### 10. Layout
 
 Prefer:
 
@@ -223,7 +361,7 @@ Prefer:
 
 Avoid `float`, negative margins and absolute positioning when Grid/Flexbox can solve the layout cleanly.
 
-### 10. Typography
+### 11. Typography
 
 - Keep typography consistent through existing tokens.
 - Use semantic headings (`h1`–`h6`).
@@ -237,7 +375,7 @@ Avoid `float`, negative margins and absolute positioning when Grid/Flexbox can s
 }
 ```
 
-### 11. States and accessibility
+### 12. States and accessibility
 
 Interactive components should support the states they need:
 
@@ -263,7 +401,7 @@ Do not remove focus indicators without replacing them.
 
 Support `prefers-reduced-motion` for meaningful animations.
 
-### 12. Animation / performance
+### 13. Animation / performance
 
 - Prefer animating `transform` and `opacity`.
 - Avoid unnecessary animation of `width`, `height`, `top` and `left`.
@@ -271,7 +409,7 @@ Support `prefers-reduced-motion` for meaningful animations.
 - Avoid expensive effects on large lists.
 - Do not add JavaScript when native CSS can solve the interaction.
 
-### 13. Images / media
+### 14. Images / media
 
 - Use semantic HTML for meaningful content.
 - Use `aspect-ratio` to prevent layout shift.
@@ -290,7 +428,7 @@ Support `prefers-reduced-motion` for meaningful animations.
 }
 ```
 
-### 14. PrestaShop / Smarty
+### 15. PrestaShop / Smarty
 
 Keep responsibilities separated:
 
@@ -302,7 +440,7 @@ Do not put CSS inline in `.tpl` unless there is a specific technical reason.
 
 When styling third-party modules, scope overrides to the smallest relevant component/page area. Do not modify vendor code when an application-level override is possible.
 
-### 15. Bootstrap / vendor code
+### 16. Bootstrap / vendor code
 
 The repository contains Bootstrap/vendor SCSS.
 
@@ -311,7 +449,7 @@ The repository contains Bootstrap/vendor SCSS.
 - Do not rely excessively on Bootstrap's internal DOM structure.
 - Do not introduce another dependency for a small UI that can be implemented with existing CSS/JS.
 
-### 16. Property order
+### 17. Property order
 
 Keep declarations consistent:
 
@@ -343,7 +481,7 @@ Example:
 }
 ```
 
-### 17. Comments
+### 18. Comments
 
 Comments should explain **why**, not what obvious code does.
 
@@ -360,7 +498,7 @@ Avoid comments such as:
 margin: 20px;
 ```
 
-### 18. Utilities
+### 19. Utilities
 
 Use utility classes only for genuinely reusable patterns.
 
@@ -374,33 +512,39 @@ Examples:
 
 Do not create one-off utility classes for a single component value.
 
-### 19. Style change workflow
+### 20. Style change workflow
 
 Before modifying a component:
 
 1. Find the HTML/Smarty class being rendered.
-2. Search all existing SCSS rules for that class.
-3. Check for duplicate selectors and duplicate properties.
-4. Identify the original/source rule that should be changed.
-5. Reuse existing variables, mixins, utilities and component styles.
-6. Refactor an existing rule when possible.
-7. Only add a new rule when the existing architecture cannot satisfy the requirement.
-8. Edit **SCSS only**.
-9. Build SCSS to regenerate CSS.
-10. Inspect DevTools and verify that unnecessary duplicate rules were not introduced.
-11. Test mobile, tablet and desktop.
-12. Check other components using the same class before committing.
+2. Identify the page/template/component where it is used.
+3. Find the **existing SCSS file responsible for that component or page**.
+4. Search all existing SCSS rules for that class.
+5. Check for duplicate selectors and duplicate properties.
+6. Identify the original/source rule that should be changed.
+7. Reuse existing variables, mixins, utilities and component styles.
+8. Refactor an existing rule when possible.
+9. Only add a new rule when the existing architecture cannot satisfy the requirement.
+10. Edit **SCSS only**.
+11. Keep the rule inside the SCSS file that owns the component/page.
+12. Build SCSS to regenerate CSS.
+13. Inspect DevTools and verify that unnecessary duplicate rules were not introduced.
+14. Test mobile, tablet and desktop.
+15. Check other components using the same class before committing.
 
-### 20. Before commit
+### 21. Before commit
 
 - [ ] Styling changes are made only in existing `.scss` files.
 - [ ] No new `.css` file was created.
 - [ ] No generated `.css` file was edited manually.
 - [ ] No new `.scss` file was created without a strong architectural reason.
+- [ ] The edited SCSS file has a clear responsibility.
+- [ ] The edited SCSS file is appropriate for the page/component being changed.
 - [ ] Existing styles were searched before adding new rules.
 - [ ] No duplicate selector/property was introduced.
 - [ ] Existing BEM blocks/elements/modifiers were reused where possible.
 - [ ] Existing variables/tokens/mixins were reused where possible.
+- [ ] No unrelated component styles were added to the file.
 - [ ] No unnecessary `!important` was added.
 - [ ] Selector specificity remains low and predictable.
 - [ ] Responsive behavior was checked.
@@ -414,12 +558,13 @@ When rules conflict, prioritize:
 
 1. Accessibility
 2. Semantic HTML
-3. Reuse existing styles
-4. Avoid duplication
-5. Maintainability
-6. Performance
-7. Responsive behavior
-8. Design consistency
-9. Visual preference
+3. Correct file ownership / clear responsibility
+4. Reuse existing styles
+5. Avoid duplication
+6. Maintainability
+7. Performance
+8. Responsive behavior
+9. Design consistency
+10. Visual preference
 
-**Core principle:** Do not add CSS just because it makes the current screen look correct. First find the existing source rule and reuse or refactor it. Keep SCSS clean and keep generated CSS as a build artifact.
+**Core principle:** Every SCSS file must have a clear purpose, clear page/component ownership and a defined scope. Before adding a style, first identify which existing file is responsible for that UI. Reuse or refactor existing styles before creating anything new. Keep SCSS as the source of truth and keep generated CSS as a build artifact.
